@@ -6,6 +6,7 @@ import { FaHome, FaProjectDiagram, FaUser } from "react-icons/fa";
 import { Fahkwang } from "next/font/google";
 
 import Link from "next/link";
+import Topbar from "./Topbar";
 
 const Sidebar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(true);
@@ -16,36 +17,46 @@ const Sidebar = () => {
   };
 
   return (
-    <div
-      className={` flex text-white relative flex-col  bg-black h-screen ${
-        isOpenMenu ? "expanded" : "collapsed"
-      }`}
-    >
-      <div
-        className={`absolute  text-white bottom-[10vh] right-0  `}
-        onClick={() => setIsOpenMenu(!isOpenMenu)}
-      >
-        <FiChevronRight size={50} style={iconStyle} />
-      </div>
+    <>
+      <section className=" flex">
 
-      <nav className="mt-20 flex flex-col gap-4   ">
-        <Link
-          className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
-          href={"/adm"}
+        <div
+          className={` flex text-white relative flex-col  bg-sidebarbgColor h-screen ${isOpenMenu ? "expanded" : "collapsed"
+            }`}
         >
-          <FaUser size={35} />{" "}
-          <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Admin</h3>
-        </Link>
+          <div
+            className={`absolute  text-white bottom-[10vh] right-0  `}
+            onClick={() => setIsOpenMenu(!isOpenMenu)}
+          >
+            <FiChevronRight size={50} style={iconStyle} />
+          </div>
 
-        <Link
-          className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
-          href={"/"}
-        >
-          <FaHome size={35} /> 
-          <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Inicio</h3>
-        </Link>
-      </nav>
-    </div>
+          <nav className="mt-20 flex flex-col gap-4   ">
+            <Link
+              className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
+              href={"/adm"}
+            >
+              <FaUser size={35} />{" "}
+              <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Admin</h3>
+            </Link>
+
+            <Link
+              className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
+              href={"/"}
+            >
+              <FaHome size={35} />
+              <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Inicio</h3>
+            </Link>
+          </nav>
+
+        </div>
+        
+      
+       
+            
+        
+      </section>
+    </>
   );
 };
 
