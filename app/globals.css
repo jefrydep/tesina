@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+.expanded {
+  width: 200px; /* Cambia el ancho según tus preferencias */
+  transition: width 0.3s ease; /* Agrega una transición suave para el cambio de ancho */
+}
+
+.collapsed {
+  width: 60px; /* Cambia el ancho según tus preferencias */
+  transition: width 0.3s ease; /* Agrega una transición suave para el cambio de ancho */
+}
+ 
