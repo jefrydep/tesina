@@ -1,14 +1,6 @@
-import Image from 'next/image'
-import Sidebar from './components/Sidebar'
-import MyHome from './home/page'
-import AdminPage from './adm/page'
-
+ 
 export default function Home() {
   return (
-    <main className="w-screen  ">
-    
-      <MyHome />
-      
-    </main>
-  )
+    <main className="w-full   rounded-3xl bg-pagebgColor h-screen ">home</main>
+  );
 }
