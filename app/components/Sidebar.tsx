@@ -6,7 +6,6 @@ import { FaHome, FaProjectDiagram, FaUser } from "react-icons/fa";
 import { Fahkwang } from "next/font/google";
 
 import Link from "next/link";
-import Topbar from "./Topbar";
 
 const Sidebar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(true);
@@ -34,7 +33,7 @@ const Sidebar = () => {
           <nav className="mt-20 flex flex-col gap-4   ">
             <Link
               className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
-              href={"/adm"}
+              href={"/dashboard/adm"}
             >
               <FaUser size={35} />{" "}
               <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Admin</h3>
@@ -42,7 +41,7 @@ const Sidebar = () => {
 
             <Link
               className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
-              href={"/"}
+              href={"/dashboard"}
             >
               <FaHome size={35} />
               <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Inicio</h3>

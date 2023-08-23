@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
+import LoginPage from "./login/page";
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -18,10 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" flex bg-black  ">
-        <Sidebar />
-       
+      <body className="   ">
         
+       
+        {/* <LoginPage/> */}
         
         {children}
       </body>

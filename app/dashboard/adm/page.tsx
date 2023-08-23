@@ -1,11 +1,11 @@
-import Topbar from "../components/Topbar"
+import Topbar from "../../components/Topbar"
 
  
 
 const AdminPage = () => {
   return (
     <div className='w-full  rounded-3xl bg-pagebgColor h-screen '>
-      <Topbar/>
+     <Topbar/>
       AdminPage
       </div>
   )
