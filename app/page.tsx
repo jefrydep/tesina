@@ -3,7 +3,7 @@ import LoginPage from "./login/page";
 
 export default function Home() {
   return (
-    <main className="w-full   rounded-3xl bg-pagebgColor   h-screen ">
+    <main className="w-full   rounded-3xl bg-pagebgColor   h-full  ">
       {/* <Topbar /> */}
 
       <LoginPage />

@@ -11,10 +11,12 @@ const LoginForm = () => {
     console.log(usuario, password);
   };
   return (
-    <div>
+    <div className="z-20 absolute top-20  w-full flex px-3  justify-center">
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form className="bg-slate-100 shadow-md rounded-lg md:grid md:grid-cols-2   md:w-[40rem]   ">
-          <div className="bg-orange-400 rounded-l-lg p-5">conten</div>
+        <Form className="bg-slate-100 shadow-md rounded-lg md:grid md:grid-cols-2 w-full  md:w-[40rem]   ">
+          <div className="bg-orange-400 hidden md:block rounded-l-lg p-5 text-center "><p className="text-white">
+          "¡Bienvenido de nuevo! Estamos emocionados de tenerte de regreso en nuestra App Inmobiliaria. Ingresa para explorar propiedades y seguir tu búsqueda del hogar perfecto."
+            </p></div>
           <div className="flex flex-col gap-4 p-5">
             <h2>Iniciar sesion</h2>
             <label className="text-orange-500 font-bold"> Usuario</label>
