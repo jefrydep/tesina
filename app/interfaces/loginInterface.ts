@@ -1,4 +1,4 @@
 export interface LoginInterface{
-    usuario:string;
+    documentNumber:string;
     password:string;
 }
