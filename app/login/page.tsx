@@ -11,7 +11,7 @@ const LoginPage = () => {
         <div className="bg-orange-400 px-10 text-white py-4 shadow-md font-bold">
            Inmobiiaria Palomino
         </div>
-        <div className="     bg-[url('/images/paisaje.jpg')] h-[95vh] lg:h-[85vh] relative bg-cover  border opacity-80  w-full flex flex-col justify-center items-center">
+        <div className="   bg-fixed  bg-[url('/images/paisaje.jpg')] h-[95vh] lg:h-[85vh] relative bg-cover  border opacity-80  w-full flex flex-col justify-center items-center">
 
 
           <div
@@ -36,7 +36,7 @@ const LoginPage = () => {
         </div>
         <LoginForm />
 
-        <section className="lg:grid flex flex-col px-3 lg:grid-cols-2 lg:px-36">
+        <section className="lg:grid bg-pagebgColor flex flex-col px-3 lg:grid-cols-2 lg:px-36">
           <div >
             <Image alt="mision" width={380} height={380} src={mision} priority />
           </div>

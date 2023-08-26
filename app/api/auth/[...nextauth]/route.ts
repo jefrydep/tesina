@@ -1,3 +1,4 @@
+import { LoginInterface } from "@/app/interfaces/loginInterface";
 import NextAuth, { RequestInternal } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 const handler = NextAuth({
@@ -20,18 +21,21 @@ const handler = NextAuth({
       },
 
       async authorize(credentials) {
+        const { documentNumber, password } = credentials as any;
         const res = await fetch(
-          "https://api.pagosvirtualesperu.com/siam/usuarios/login",
+          "http://localhost:3000/api/auth/login",
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(credentials),
+            body: JSON.stringify( {
+              documentNumber,password
+            }),
           }
         );
-        console.log({ credentials });
-        const user: LoginResponse | any = await res.json();
+       
+        const user: LoginInterface | any = await res.json();
         console.log(user);
         if (res.ok && user) {
           // if (user) {
@@ -40,7 +44,7 @@ const handler = NextAuth({
           return null;
         }
       },
-    }),
+    }), 
   ],
 
   callbacks: {

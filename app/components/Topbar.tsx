@@ -1,6 +1,13 @@
-import React from 'react'
+"use client"
+import { signOut } from 'next-auth/react';
+
+
+
+import React, { useState } from 'react'
+import Swal from 'sweetalert2';
 
 const Topbar = () => {
+  const [isLoading, setIsLoading] = useState(false)
   return (
     <section className=' '>
 
@@ -15,7 +22,38 @@ const Topbar = () => {
           <div className="   flex flex-col mr-7 ml-3">
 
             <span className="text-sidebarbgColor">Palomino Mayta Godofredo</span>
-            <span className="text-sm">Usuario</span>
+             
+            <div
+                title="Salir"
+                className="cursor-pointer  hover    hover:text-red-400 text-blue-500 rounded-xl"
+                onClick={async () => {
+                  const result = await Swal.fire({  
+                    title: "¿Cerrar sesión?",
+                    text: "¿Estás seguro?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    customClass:{
+                       confirmButton: "sidebarbgColor"
+                    },
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "¡Si!, ¡Cerrar!",
+                    cancelButtonText: "Cancelar",
+                  });
+
+                  if (result.isConfirmed) {
+                    setIsLoading(true);
+
+                    await signOut({
+                      redirect: true,
+                    });
+
+                   
+                    setIsLoading(false);
+                  }
+                }}
+              >
+               salir 
+              </div>
           </div>
         </div>
       </div>

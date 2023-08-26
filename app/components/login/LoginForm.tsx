@@ -1,7 +1,11 @@
 "use client";
 
 import { LoginInterface } from "@/app/interfaces/loginInterface";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+ 
+import Swal from "sweetalert2";
 import * as Yup from "yup";
 const initialValues = {
   documentNumber: "",
@@ -9,12 +13,49 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  cidusuario: Yup.string().required("Usuario es requerido"),
-  ccpassword: Yup.string().required("Contraseña es requerida"),
+  documentNumber: Yup.string().required("Usuario es requerido"),
+  password: Yup.string().required("Contraseña es requerida"),
 });
 const LoginForm = () => {
-  const handleSubmit = ({ documentNumber, password }: LoginInterface) => {
-    console.log(documentNumber, password);
+
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const handleSubmit = async ({ documentNumber, password }: LoginInterface,actions: FormikHelpers<LoginInterface>) => {
+console.log("estamos enviando el formularion")
+    try {
+      const res = await signIn("credentials", {
+        documentNumber,
+        password,
+        redirect: false,
+      });
+      console.log(res)
+
+      if (res?.error) {
+        console.log("Error de autenticación:", res.error);
+
+       
+
+        Swal.fire({
+          confirmButtonColor: "#01DFD7",
+
+          icon: "error",
+          title: "Oops...",
+          text: "Credenciales incorrectas",
+        });
+       
+        setTimeout(() => {
+          
+          actions.resetForm();
+        }, 2000);
+      } else if (res?.ok) {
+        router.push("/dashboard/adm");
+
+        
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
   return (
     <div className="z-20 absolute top-20  w-full flex px-3  justify-center">
@@ -49,7 +90,7 @@ const LoginForm = () => {
               component="div"
               className="text-red-500 font-bold"
             />
-            <button className="border-2 font-bold  border-gray-500 hover:border-orange-400 rounded-3xl px-2 py-1 hover:text-white hover:bg-orange-400 shadow-sm bg-white">
+            <button type="submit" className="border-2 font-bold  border-gray-500 hover:border-orange-400 rounded-3xl px-2 py-1 hover:text-white hover:bg-orange-400 shadow-sm bg-white">
               Enviar
             </button>
             <h3>
