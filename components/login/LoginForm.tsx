@@ -1,6 +1,6 @@
 "use client";
 
-import { LoginInterface } from "@/app/interfaces/loginInterface";
+import { LoginInterface } from "@/interfaces/loginInterface";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";

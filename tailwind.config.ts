@@ -12,8 +12,12 @@ const config: Config = {
       colors:{
         pagebgColor: "#E3E3EF",
         sidebarbgColor: "#081E33",
-        contentbgColor: "#F7F7FC"
+        contentbgColor: "#F7F7FC",
+        hoverButton: "#081e33",
+        textHover:"#f7f7fc",
+        buttonBorder:"#081e33"
       },
+       
       
     },
   },

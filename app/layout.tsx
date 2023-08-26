@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Sidebar from "./components/Sidebar";
-import Topbar from "./components/Topbar";
+import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
 import LoginPage from "./login/page";
 import Providers from "./Provider";
 

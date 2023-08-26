@@ -1,4 +1,4 @@
-import Topbar from "./components/Topbar";
+import Topbar from "../components/Topbar";
 import LoginPage from "./login/page";
 
 export default function Home() {

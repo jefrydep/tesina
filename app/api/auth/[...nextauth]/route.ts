@@ -1,4 +1,4 @@
-import { LoginInterface } from "@/app/interfaces/loginInterface";
+import { LoginInterface } from "@/interfaces/loginInterface";
 import NextAuth, { RequestInternal } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 const handler = NextAuth({

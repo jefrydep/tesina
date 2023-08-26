@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import LoginForm from "../components/login/LoginForm";
+import LoginForm from "../../components/login/LoginForm";
 import Image from "next/image";
 import mision from "../../public/images/mision.png"
 import vision from "../../public/images/vision.png"
