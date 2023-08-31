@@ -8,6 +8,7 @@ import ModalUser from "@/components/admin/ModalUser";
 
 const Dashboard = () => {
   const { users } = useUsers();
+
   console.log(users);
   return (
     <div className="w-full  rounded-3xl bg-pagebgColor h-screen">
@@ -55,6 +56,8 @@ const Dashboard = () => {
             {users.map((user) => (
               <div key={user.id}>
                 <ItemsTable
+                documentNumber={user.documentNumber}
+                 password={user}
                   id={user.id}
                   name={user.name}
                   rol={user.role[0]}

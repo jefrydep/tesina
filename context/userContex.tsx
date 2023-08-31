@@ -3,6 +3,7 @@ import {
   createUserRequest,
   getUserRequest,
   deleteUserRequest,
+  updateUserRequest,
 } from "@/helpers/users";
 import { UsersResponse } from "@/interfaces/usersResponse";
 import { PropsWithChildren, createContext, useEffect, useState } from "react";
@@ -11,16 +12,19 @@ interface Users {
   name: string;
   documentNumber: string;
   password: string;
+  
 }
 interface userContextValue {
   users: UsersResponse[];
   createUser: (user: Users) => Promise<void>;
   deleteUser: (id: string, name: string) => Promise<void>;
+  updateUser:(id:string)=> Promise<void>;
 }
 export const UserContext = createContext<userContextValue>({
   users: [],
   createUser: async () => {},
   deleteUser: async () => {},
+  updateUser:async()=>{}
 });
 
 export const UserProvider = ({ children }: PropsWithChildren) => {
@@ -70,6 +74,15 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
       }
     }
   };
+  const updateUser = async (id: string) => {
+    const response = await updateUserRequest(id);
+    const data = await response.json();
+    setUsers(
+      users.map((user) =>
+        user.id === users.i? { ...st, ...data } : st
+      )
+    );
+  };
 
   return (
     <UserContext.Provider
@@ -77,6 +90,7 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
         users,
         createUser,
         deleteUser,
+        updateUser,
       }}
     >
       {children}

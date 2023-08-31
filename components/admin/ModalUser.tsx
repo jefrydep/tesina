@@ -1,14 +1,27 @@
 import { useUsers } from "@/hooks/useUsers";
 import { LoginInterface } from "@/interfaces/loginInterface";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import CustomButton from "../ui/CustomButton";
 import Swal from "sweetalert2";
+import * as Yup from "yup";
 interface MyFormValues {
   name: string;
   documentNumber: string;
   password: string;
 }
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Usuario es requerido"),
+  documentNumber: Yup.string()
+  .required("Documento es requerido")
+  .min(8, "El número de documento debe tener al menos 8 caracteres")
+  .max(8, "El número de documento debe tener como máximo 8 caracteres"),
+  password: Yup.string().required("La contraseña debe tener mayusaculas y numeros")
+  .matches(
+    /^(?=.*[A-Z])(?=.*\d)/,
+    "La contraseña debe contener al menos una mayúscula y un número"
+  ),
+});
 const ModalUser = () => {
   const [showModal, setShowModal] = useState(false);
   const { createUser } = useUsers();
@@ -56,6 +69,7 @@ const ModalUser = () => {
                 documentNumber: "",
                 password: "",
               }}
+              validationSchema={validationSchema}
               onSubmit={onSubmit}
             >
               <Form className="flex flex-col gap-2">
@@ -68,6 +82,13 @@ const ModalUser = () => {
                   name="name"
                   placeholder="Jefry Palomino"
                 />
+                 <div className="mb-3">
+                  <ErrorMessage
+                    name="name"
+                    component="div"
+                    className="text-red-500 font-bold"
+                  />
+                </div>
                 <label className="block text-start text-gray-700 text-sm font-bold mb-2">
                   Dni
                 </label>
@@ -77,6 +98,13 @@ const ModalUser = () => {
                   name="documentNumber"
                   placeholder="78459865"
                 />
+                 <div className="mb-3">
+                  <ErrorMessage
+                    name="documentNumber"
+                    component="div"
+                    className="text-red-500 font-bold"
+                  />
+                </div>
                 <label className="block text-start text-gray-700 text-sm font-bold mb-2">
                   Contraseña
                 </label>
@@ -86,6 +114,13 @@ const ModalUser = () => {
                   name="password"
                   placeholder="************"
                 />
+                 <div className="mb-3">
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="text-red-500 font-bold"
+                  />
+                </div>
 
                 <div className="flex gap-4 justify-center mt-4">
                   <button

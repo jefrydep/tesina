@@ -50,3 +50,12 @@ export const createUserRequest = async (user: LoginInterface) => {
 //       "Content-Type": "application/json",
 //     },
 //   });
+
+export const updateUserRequest = async (id: string) =>
+fetch(`${API}/api/auth/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(id),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
