@@ -20,7 +20,7 @@ const Sidebar = () => {
       <section className=" flex">
 
         <div
-          className={` flex text-white relative flex-col  bg-sidebarbgColor h-screen ${isOpenMenu ? "expanded" : "collapsed"
+          className={` flex text-white relative flex-col  bg-sidebarbgColor h-full ${isOpenMenu ? "expanded" : "collapsed"
             }`}
         >
           <div
@@ -31,21 +31,24 @@ const Sidebar = () => {
           </div>
 
           <nav className="mt-20 flex flex-col gap-4   ">
-            <Link
-              className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
-              href={"/dashboard/adm"}
-            >
-              <FaUser size={35} />{" "}
-              <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Admin</h3>
-            </Link>
 
-            <Link
+          <Link
               className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
               href={"/dashboard"}
             >
-              <FaHome size={35} />
-              <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Inicio</h3>
+             
+              <FaUser size={35} />{" "}
+              <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Admin</h3>
             </Link>
+            <Link
+              className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "
+              href={"/dashboard/home"}
+            >
+              <FaHome size={35} />
+              <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>home</h3>
+            </Link>
+
+          
           </nav>
 
         </div>

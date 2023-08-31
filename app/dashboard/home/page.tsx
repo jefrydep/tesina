@@ -4,7 +4,7 @@ import CustomButton from "@/components/ui/CustomButton"
 
 
 
-const AdminPage = () => {
+const HomePage = () => {
   return (
     <div className='w-full  rounded-3xl bg-pagebgColor h-screen '>
       <Topbar />
@@ -29,16 +29,16 @@ const AdminPage = () => {
         </div>
       </div>
       <section className="bg-white mt-3 pt-4">
-        <div className="flex gap-3  ">
+        {/* <div className="flex gap-3  ">
 
           <input className="border rounded-3xl border-buttonBorder px-3 py-1 mt-1 mb-2" name="search" type="text" placeholder="Dni" />
 
-          <CustomButton name="Buscar" />
-        </div>
+          <CustomButton name="Buscar"   />
+        </div> */}
 
       </section>
     </div>
   )
 }
 
-export default AdminPage
+export default HomePage

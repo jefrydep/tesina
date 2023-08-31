@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 const initialValues = {
+  name:"",
   documentNumber: "",
   password: "",
 };
@@ -48,7 +49,7 @@ console.log("estamos enviando el formularion")
           actions.resetForm();
         }, 2000);
       } else if (res?.ok) {
-        router.push("/dashboard/adm");
+        router.push("/dashboard/home");
 
         
       }

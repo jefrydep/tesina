@@ -18,7 +18,7 @@ const firstName: string = frase.match(/\b\w+\b/)![0]; // Utilizar una expresión
     <section className=' '>
       
     <div className="bg-contentbgColor   flex justify-between  border-b   w-full  items-center  rounded-t-3xl h-16">
-        <div className="px-2 mx-7 font-bold hidden lg:block">
+        <div className="px-2 mx-7 font-bold text-lg hidden lg:block">
           !Hola {firstName} Bienvenido Otra Vez!   
         </div>
         <div className="flex   border-l-4 px-2">

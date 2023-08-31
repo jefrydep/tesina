@@ -1,3 +1,5 @@
+"use client"
+import { UserProvider } from "@/context/userContex";
 import Topbar from "../components/Topbar";
 import LoginPage from "./login/page";
 
@@ -5,8 +7,9 @@ export default function Home() {
   return (
     <main className="w-full   rounded-3xl bg-pagebgColor   h-full  ">
       {/* <Topbar /> */}
-
-      <LoginPage />
+      
+        <LoginPage />
+      
     </main>
   );
 }
