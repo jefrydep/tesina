@@ -56,8 +56,8 @@ const Dashboard = () => {
             {users.map((user) => (
               <div key={user.id}>
                 <ItemsTable
-                documentNumber={user.documentNumber}
-                 password={user}
+                  documentNumber={user.documentNumber}
+                  password={user.password}
                   id={user.id}
                   name={user.name}
                   rol={user.role[0]}

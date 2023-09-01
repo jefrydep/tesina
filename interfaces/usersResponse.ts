@@ -1,4 +1,5 @@
 export interface UsersResponse {
+    password:string;
     id:             string;
     documentNumber: string;
     name:       string;

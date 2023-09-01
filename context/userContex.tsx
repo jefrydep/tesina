@@ -8,23 +8,22 @@ import {
 import { UsersResponse } from "@/interfaces/usersResponse";
 import { PropsWithChildren, createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
-interface Users {
+export interface Users {
   name: string;
   documentNumber: string;
   password: string;
-  
 }
 interface userContextValue {
   users: UsersResponse[];
   createUser: (user: Users) => Promise<void>;
   deleteUser: (id: string, name: string) => Promise<void>;
-  updateUser:(id:string)=> Promise<void>;
+  updateUser: (id: string, user: Users) => Promise<void>;
 }
 export const UserContext = createContext<userContextValue>({
   users: [],
   createUser: async () => {},
   deleteUser: async () => {},
-  updateUser:async()=>{}
+  updateUser: async () => {},
 });
 
 export const UserProvider = ({ children }: PropsWithChildren) => {
@@ -74,14 +73,14 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
       }
     }
   };
-  const updateUser = async (id: string) => {
-    const response = await updateUserRequest(id);
+  const updateUser = async (id: string, user: Users) => {
+    const response = await updateUserRequest(id, user);
     const data = await response.json();
-    setUsers(
-      users.map((user) =>
-        user.id === users.i? { ...st, ...data } : st
-      )
-    );
+    // setUsers(
+    //   users.map((user) =>
+    //     user.id === users.i? { ...st, ...data } : st
+    //   )
+    // );
   };
 
   return (

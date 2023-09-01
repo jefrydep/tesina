@@ -1,6 +1,8 @@
 // import { Persona } from "@/interfaces/perona";
 // import { StudentsResponse } from "@/interfaces/studentsResponse";
+import { Users } from "@/context/userContex";
 import { LoginInterface } from "@/interfaces/loginInterface";
+import { UsersResponse } from "@/interfaces/usersResponse";
 import axios from "axios";
 
 const API = "http://localhost:3000";
@@ -51,10 +53,10 @@ export const createUserRequest = async (user: LoginInterface) => {
 //     },
 //   });
 
-export const updateUserRequest = async (id: string) =>
+export const updateUserRequest = async (id: string,user:Users) =>
 fetch(`${API}/api/auth/${id}`, {
     method: "PATCH",
-    body: JSON.stringify(id),
+    body: JSON.stringify(user),
     headers: {
       "Content-Type": "application/json",
     },
