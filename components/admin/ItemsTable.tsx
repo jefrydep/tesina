@@ -42,13 +42,13 @@ const ItemsTable = ({
   password,
 }: tableProps) => {
   const [showModal, setShowModal] = useState(false);
-  const { deleteUser,updateUser } = useUsers();
+  const { deleteUser, updateUser } = useUsers();
 
   const onSubmit = async (user: MyFormValues) => {
     // resetform();
 
     setShowModal(false);
-    updateUser(id,user)
+    updateUser(id, user);
     // console.log({ name, documentNumber, password });
     // await createUserRequest({ name, documentNumber, password });
     // createUser({name,documentNumber,password})
@@ -56,13 +56,15 @@ const ItemsTable = ({
     // console.log({ values });
   };
   return (
-    <div className="grid grid-cols-4 rounded-2xl mx-3 px-3 py-1  text-white font-semibold bg-blue-200">
+    <div className="grid grid-cols-4 border  border-blue-300  items-center rounded-2xl mx-3 px-3 py-1  text-blue-500 font-semibold bg-blue-50">
       <div>{name}</div>
       <div>{status}</div>
       <div>{rol}</div>
       <div className="flex text-white gap-6">
-        X
-        <div  onClick={() => setShowModal(true)} className="rounded-full w-10 h-10      hover:bg-green-400 inline-block cursor-pointer ">
+        <div
+          onClick={() => setShowModal(true)}
+          className="rounded-full w-10 h-10      hover:bg-green-400 inline-block cursor-pointer "
+        >
           <MdDriveFileRenameOutline color={"white"} size={35} />
         </div>
         <div

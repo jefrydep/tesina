@@ -6,6 +6,7 @@ import {
   updateUserRequest,
 } from "@/helpers/users";
 import { UsersResponse } from "@/interfaces/usersResponse";
+import { useSession } from "next-auth/react";
 import { PropsWithChildren, createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 export interface Users {
@@ -28,12 +29,17 @@ export const UserContext = createContext<userContextValue>({
 
 export const UserProvider = ({ children }: PropsWithChildren) => {
   const [users, setUsers] = useState<UsersResponse[]>([]);
+  const { data: session, status } = useSession();
+  const token = session?.user.token;
+  console.log(token)
 
   useEffect(() => {
-    getUserRequest()
-      .then((resp) => setUsers(resp.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (token) {
+      getUserRequest(token)
+        .then((resp) => setUsers(resp.data))
+        .catch((err) => console.log(err));
+    }
+  }, [token]);
 
   const createUser = async (user: Users) => {
     const res = await createUserRequest(user);

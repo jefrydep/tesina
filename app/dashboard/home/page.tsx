@@ -6,7 +6,7 @@ import CustomButton from "@/components/ui/CustomButton"
 
 const HomePage = () => {
   return (
-    <div className='w-full  rounded-3xl bg-pagebgColor h-screen '>
+    <div className='w-full  rounded-3xl bg-pagebgColor h-full'>
       <Topbar />
       <div className="bg-white   p-5 flex justify-around">
         <h3>Lista de creditos </h3>

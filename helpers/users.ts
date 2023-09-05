@@ -1,12 +1,12 @@
 // import { Persona } from "@/interfaces/perona";
 // import { StudentsResponse } from "@/interfaces/studentsResponse";
+"use client"
 import { Users } from "@/context/userContex";
 import { LoginInterface } from "@/interfaces/loginInterface";
 import { UsersResponse } from "@/interfaces/usersResponse";
 import axios from "axios";
 
 const API = "http://localhost:3000";
-
 // interface PersonaResponse {
 //   ide_per: string;
 //   nom_per: string;
@@ -15,8 +15,14 @@ const API = "http://localhost:3000";
 //   nro_doc: string;
 //   fch_nac: string;
 // }
-export const getUserRequest = () => {
-  const users = axios.get(`${API}/api/auth`);
+export const getUserRequest = (token:string) => {
+  const users = axios.get(`${API}/api/auth`, {
+    headers:{
+      Authorization: `Bearer ${token}`
+      
+    }
+    
+  });
   return users;
   // console.log(student);
 };

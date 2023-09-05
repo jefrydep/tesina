@@ -1,4 +1,5 @@
-import { LoginInterface } from "@/interfaces/loginInterface";
+import { LoginInterface, LoginResponse } from "@/interfaces/loginInterface";
+import { UsersResponse } from "@/interfaces/usersResponse";
 import NextAuth, { RequestInternal } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 const handler = NextAuth({
@@ -35,7 +36,7 @@ const handler = NextAuth({
           }
         );
        
-        const user: LoginInterface | any = await res.json();
+        const user: UsersResponse | any = await res.json();
         console.log(user);
         if (res.ok && user) {
           // if (user) {
