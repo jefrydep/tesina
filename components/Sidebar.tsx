@@ -42,7 +42,9 @@ const Sidebar = () => {
                 <FaUser size={35} />{" "}
                 <h3 className={`${isOpenMenu ? "block" : "hidden"}`}>Admin</h3>
               </Link>
-            )}
+              
+              )}
+              <hr /> 
 
             <Link
               className="flex pl-3  items-center gap-4 hover:bg-[#C1BBBA] "

@@ -53,13 +53,13 @@ const Dashboard = async () => {
           <ModalUser />
         </div>
         <div className="bg-white    overflow-scroll mt-3 rounded-2xl mx-3  ">
-          <div className="bg-sky-800  w-[1600px]  rounded-t-2xl p-3 mb-2 text-white text-lg grid grid-cols-4">
+          <div className="bg-titleTable  w-[1600px] md:w-full  rounded-t-2xl p-3 mb-2 text-white text-lg grid grid-cols-4">
             <div>Nombre</div>
             <div>estatus</div>
             <div>Rol</div>
             <div>Acciones</div>
           </div>
-          <div className="flex w-[1600px] flex-col gap-2 ">
+          <div className="flex w-[1600px] md:w-full flex-col gap-2 ">
             {users.map((user) => (
               <div key={user.id}>
                 <ItemsTable

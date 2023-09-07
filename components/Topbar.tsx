@@ -18,13 +18,13 @@ const firstName: string = frase.match(/\b\w+\b/)![0]; // Utilizar una expresión
   return (
     <section className=' '>
       
-    <div className="bg-contentbgColor   flex justify-between  border-b   w-full  items-center  rounded-t-[50px] h-16">
+    <div className="bg-navbar  flex justify-between  border-b   w-full  items-center  rounded-t-[50px] h-16">
         <div className="px-2 mx-7 font-bold text-lg hidden lg:block">
           !Hola {firstName} Bienvenido Otra Vez!   
         </div>
         <div className="flex   border-l-4 px-2">
-          <div className=" bg-sidebarbgColor text-white w-10 h-10 rounded-full">
-            J
+          <div className=" bg-sidebarbgColor flex items-center font-bold content-center justify-center text-white w-10 h-10 rounded-full">
+            {session?.user.name.slice(0,1)}
           </div>
           <div className="   flex flex-col mr-7 ml-3">  
 
