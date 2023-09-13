@@ -1,11 +1,15 @@
 export interface UsersResponse {
-    password:string;
     id:             string;
     documentNumber: string;
-    name:       string;
-    isActive:       boolean;
-    role:           Role[];
+    address:        string;
+    phoneNumber:    string;
+    email:          string;
+    password:       string;
+    name:           string;
+    role:           string[];
+    token:          string;
 }
+
 
 export enum Role {
     User = "user",

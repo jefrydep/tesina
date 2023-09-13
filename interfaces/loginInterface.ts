@@ -5,10 +5,14 @@ export interface LoginInterface {
 }
  
 export interface LoginResponse {
-    id:             string;
-    documentNumber: string;
-    password:       string;
-    name:           string;
-    role:           string[];
-    token:          string;
+  id:             string;
+  documentNumber: string;
+  address:        string;
+  phoneNumber:    string;
+  email:          string;
+  password:       string;
+  name:           string;
+  role:           string[];
+  token:          string;
 }
+

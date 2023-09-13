@@ -6,6 +6,7 @@ import ModalUpdate from "./ModalUpdate";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { UsersResponse } from "@/interfaces/usersResponse";
+import { LoginResponse } from "@/interfaces/loginInterface";
 interface MyFormValues {
   name: string;
   documentNumber: string;
@@ -24,23 +25,17 @@ const validationSchema = Yup.object().shape({
       "La contraseña debe contener al menos una mayúscula y un número"
     ),
 });
-interface tableProps {
-  name: string;
-  status: boolean;
-  rol: string;
-  id: string;
-  password: string;
-  documentNumber: string;
-}
 
 const ItemsTable = ({
   name,
-  status,
-  rol,
+  // status,
+  role,
+  phoneNumber,
   id,
   documentNumber,
   password,
-}: tableProps) => {
+  address,
+}: LoginResponse) => {
   const [showModal, setShowModal] = useState(false);
   const { deleteUser, updateUser } = useUsers();
 
@@ -56,10 +51,14 @@ const ItemsTable = ({
     // console.log({ values });
   };
   return (
-    <div className="grid grid-cols-4 border  border-blue-300  items-center rounded-2xl mx-3 px-3 py-1  text-blue-500 font-semibold bg-blue-50">
-      <div>{name}</div>
-      <div>{status}</div>
-      <div>{rol}</div>
+    <div className="grid grid-cols-2 bg-sky-500 text-white  md:grid-cols-4  shadow-sm  items-center rounded-2xl mx-3 px-3 py-1    font-semibold  ">
+      <div className="flex flex-col">
+        <span className="text-xs">{name}</span>
+        <span className="text-xs">DNI:{documentNumber}</span>
+      </div>
+      {/* <div>{status}</div> */}
+      <div className="text-xs">{phoneNumber}</div>
+      <div className="text-xs">{address}</div>
       <div className="flex text-white gap-6">
         <div
           onClick={() => setShowModal(true)}

@@ -18,7 +18,7 @@ const Dashboard = async () => {
 
   console.log(users);
   return (
-    <div className="w-full  rounded-[50px] bg-pagebgColor h-full">
+    <div className="w-full  rounded-[50px] bg-pagebgColor h-screen">
       <Topbar />
       <section>
         <div className="bg-white  mt-3 rounded-2xl mx-3 p-3">
@@ -52,24 +52,37 @@ const Dashboard = async () => {
           </div> */}
           <ModalUser />
         </div>
-        <div className="bg-white    overflow-scroll mt-3 rounded-2xl mx-3  ">
-          <div className="bg-titleTable  w-[1600px] md:w-full  rounded-t-2xl p-3 mb-2 text-white text-lg grid grid-cols-4">
+        <div className="bg-white h-[50vh] overflow-scroll py-2   mt-3 rounded-2xl mx-3  ">
+          <div className="bg-titleTable  hidden  md:w-full  rounded-t-2xl p-3 mb-2 text-white text-lg md:grid grid-cols-4">
             <div>Nombre</div>
-            <div>estatus</div>
-            <div>Rol</div>
+            <div>Dni</div>
+            <div>Dirección</div>
             <div>Acciones</div>
           </div>
-          <div className="flex w-[1600px] md:w-full flex-col gap-2 ">
+          <div className="flex   md:w-full flex-col gap-2 ">
             {users.map((user) => (
               <div key={user.id}>
-                <ItemsTable
-                  documentNumber={user.documentNumber}
-                  password={user.password}
-                  id={user.id}
-                  name={user.name}
-                  rol={user.role[0]}
-                  status={user.isActive}
-                />
+                <ItemsTable {...user} />
+              </div>
+            ))}
+            {users.map((user) => (
+              <div key={user.id}>
+                <ItemsTable {...user} />
+              </div>
+            ))}
+            {users.map((user) => (
+              <div key={user.id}>
+                <ItemsTable {...user} />
+              </div>
+            ))}
+            {users.map((user) => (
+              <div key={user.id}>
+                <ItemsTable {...user} />
+              </div>
+            ))}
+            {users.map((user) => (
+              <div key={user.id}>
+                <ItemsTable {...user} />
               </div>
             ))}
           </div>
