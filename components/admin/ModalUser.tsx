@@ -46,7 +46,7 @@ const ModalUser = () => {
       {!showModal ? (
         <div>
           <div onClick={() => setShowModal(true)}>
-            <CustomButton name="+ Agregar" width="100%" />
+            <CustomButton name="+ Agregar" width="w-[100%]" hoverColor="hover:bg-hoverButton" bgColor="bg-bgColor"  />
           </div>
           <div className="flex gap-2">
             <input

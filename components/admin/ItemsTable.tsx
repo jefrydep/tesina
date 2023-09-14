@@ -51,7 +51,7 @@ const ItemsTable = ({
     // console.log({ values });
   };
   return (
-    <div className="grid grid-cols-2 bg-sky-500 text-white  md:grid-cols-4  shadow-sm  items-center rounded-2xl mx-3 px-3 py-1    font-semibold  ">
+    <div className="grid grid-cols-2 bg-itemBg text-white  md:grid-cols-4  shadow-sm  items-center rounded-2xl mx-3 px-3 py-1    font-semibold  ">
       <div className="flex flex-col">
         <span className="text-xs">{name}</span>
         <span className="text-xs">DNI:{documentNumber}</span>

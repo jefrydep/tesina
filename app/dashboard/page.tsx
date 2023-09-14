@@ -8,7 +8,7 @@ import ModalUser from "@/components/admin/ModalUser";
 import { getServerSession } from "next-auth";
 import { getSession } from "next-auth/react";
 
-const Dashboard = async () => {
+const Dashboard =   () => {
   const { users } = useUsers();
 
   // const sesion = getSession()
